@@ -1,0 +1,19 @@
+var cutout = gapi.hangout.av.effects.createImageResource(
+               'http:{{site_root}}/walken_cutout.png');
+var overlay = cutout.createFaceTrackingOverlay(
+                {'trackingFeature':
+                 gapi.hangout.av.effects.FaceTrackingFeature.NOSE_ROOT,
+                 'scaleWithFace': true,
+                 'rotateWithFace': true,
+                 'scale': 0.7});
+function showOverlay() {
+	overlay.setVisible(true);
+}
+function init() {
+  gapi.hangout.onApiReady.add(function(eventObj) {
+	  if(eventObj.isApiReady) {
+		  /* */
+		}
+	});
+}
+gadgets.util.registerOnLoadHandler(init);

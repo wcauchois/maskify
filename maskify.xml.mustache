@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<Module>
+  <ModulePrefs title="Maskify">
+    <Require feature="rpc" />
+    <Require feature="views" />
+  </ModulePrefs>
+  <Content type="html">
+    <![CDATA[
+<html>
+  <head>
+    <title>{{title}}</title>
+  </head>
+  <body>
+    <script src="//hangoutsapi.talkgadget.google.com/hangouts/api/hangout.js?v=0.1"></script>
+    <script src="{{site_root}}/maskify.js"></script>
+    <center>
+      <p>
+        <br/>
+        <input type="button" value="Maskify!" onclick="showOverlay()"/>
+      </p>
+    </center>
+  </body>
+</html>
+    ]]>
+  </Content>
+</Module>
+
