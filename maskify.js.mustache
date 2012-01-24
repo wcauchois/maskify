@@ -1,14 +1,27 @@
-var cutout = gapi.hangout.av.effects.createImageResource(
-               'http:{{site_root}}/walken_cutout.png');
-var overlay = cutout.createFaceTrackingOverlay(
-                {'trackingFeature':
-                 gapi.hangout.av.effects.FaceTrackingFeature.NOSE_ROOT,
-                 'scaleWithFace': true,
-                 'rotateWithFace': true,
-                 'scale': 0.7});
-function showOverlay() {
-	overlay.setVisible(true);
+var overlays = {};
+function selectMask(name) {
+  hideAllOverlays();
+  overlays[name].setVisible(true);
 }
+function hideAllOverlays() {
+  for (var index in overlays) {
+    overlays[index].setVisible(false);
+  }
+}
+function createOverlays() {
+  var img;
+  {{#masks}}
+  img = gapi.hangout.av.effects.createImageResource(
+          '{{site_root}}/masks/{{image}}');
+  overlays['{{image}}'] = img.createFaceTrackingOverlay(
+                            {'trackingFeature':
+                             gapi.hangout.av.effects.FaceTrackingFeature.NOSE_ROOT,
+                             'scaleWithFace': true,
+                             'rotateWithFace': true,
+                             'scale': {{scale}}});
+  {{/masks}}
+}
+createOverlays();
 function init() {
   gapi.hangout.onApiReady.add(function(eventObj) {
 	  if(eventObj.isApiReady) {

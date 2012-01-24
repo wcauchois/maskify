@@ -1,4 +1,9 @@
 ---
-site_root: "//s3.amazonaws.com/maskify"
+site_root: "http://s3.amazonaws.com/maskify"
+_site_root: "//s3.amazonaws.com/maskify"
 title: "Maskify!"
+masks: [
+  {"name": "Christopher Walken", "image": "walken_cutout.png", "scale": 0.7},
+  {"name": "Apple Logo", "image": "apple.png", "scale": 0.7}
+]
 ---

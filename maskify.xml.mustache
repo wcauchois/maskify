@@ -9,16 +9,32 @@
 <html>
   <head>
     <title>{{title}}</title>
+    <style type="text/css">
+.mask {
+  display: inline;
+  padding: 3px;
+  margin: 5px;
+}
+.mask img {
+  border: 2px solid #6699FF;
+}
+.mask img:hover {
+  border: 2px solid blue;
+}
+    </style>
   </head>
   <body>
     <script src="//hangoutsapi.talkgadget.google.com/hangouts/api/hangout.js?v=0.1"></script>
-    <script src="{{site_root}}/maskify.js"></script>
-    <center>
-      <p>
-        <br/>
-        <input type="button" value="Maskify!" onclick="showOverlay()"/>
-      </p>
-    </center>
+    <script src="{{_site_root}}/maskify.js"></script>
+
+    {{#masks}}
+      <div class="mask">
+        <a href="#" onclick="selectMask('{{image}}')">
+          <img src="{{_site_root}}/thumbs/{{image}}" title="{{name}}">
+        </a>
+      </div>
+    {{/masks}}
+
   </body>
 </html>
     ]]>
