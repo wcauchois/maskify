@@ -1,7 +1,7 @@
 .PHONY: thumbs quick_publish template publish
 
 default:
-	exit 1
+	@echo "Usage: make {template,quick_publish,thumbs,publish}"
 
 template: maskify.js.mustache maskify.xml.mustache
 	mkdir -p build

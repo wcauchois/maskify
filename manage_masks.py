@@ -4,7 +4,8 @@ THUMB_SIZE = 150
 BUCKET = 'maskify'
 values = yaml.load(open('values.yml', 'r').read().replace('---\n', ''))
 if len(sys.argv) < 2:
-  print 'Usage: %s COMMAND' % sys.argv[0]
+  print 'Usage: %s {thumbs,publish}' % sys.argv[0]
+  print '  Reads data from values.yml'
   sys.exit(0)
 command = sys.argv[1].lower()
 if command == 'thumbs':
