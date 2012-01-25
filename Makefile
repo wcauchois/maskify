@@ -1,3 +1,7 @@
+.PHONY: thumbs quick_publish template publish
+
+default:
+	exit 1
 
 template: maskify.js.mustache maskify.xml.mustache
 	mkdir -p build
@@ -8,6 +12,10 @@ quick_publish: template
 	cd build && aws put --public maskify maskify.js
 	cd build && aws put --public maskify maskify.xml
 
-publish: quick_publish
-	./masks.py publish
+thumbs:
+	./manage_masks.py thumbs
+
+publish: thumbs quick_publish
+	aws put --public maskify red_x.png
+	./manage_masks.py publish
 

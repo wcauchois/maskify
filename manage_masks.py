@@ -8,6 +8,10 @@ if len(sys.argv) < 2:
   sys.exit(0)
 command = sys.argv[1].lower()
 if command == 'thumbs':
+  try:
+    os.mkdir('thumbs')
+  except OSError:
+    pass
   for mask in values['masks']:
     os.system('convert masks/%(i)s -resize %(sz)sx%(sz)s thumbs/%(i)s' % \
       {'i': mask['image'], 'sz': THUMB_SIZE})

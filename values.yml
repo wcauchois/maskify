@@ -4,6 +4,8 @@ _site_root: "//s3.amazonaws.com/maskify"
 title: "Maskify!"
 masks: [
   {"name": "Christopher Walken", "image": "walken_cutout.png", "scale": 0.7},
-  {"name": "Apple Logo", "image": "apple.png", "scale": 0.7}
+  {"name": "Apple Logo", "image": "apple.png", "scale": 0.7},
+  {"name": "Anonymous", "image": "guy_fawkes.png", "scale": 0.7},
+  {"name": "Majora's Mask", "image": "majora.png", "scale": 2.3}
 ]
 ---
